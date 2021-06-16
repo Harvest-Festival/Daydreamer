@@ -1,0 +1,9 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="MIT"
+[[mods]]
+    modId="daydreamer"
+    version="${file.jarVersion}"
+    displayName="Daydreamer"
+    authors="joshiejack"
+    description='''Allows you to sleep at any time of day, in order to skip to the next day.'''
