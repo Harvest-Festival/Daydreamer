@@ -1,27 +1,21 @@
 buildscript {
     repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
+        maven { url = 'https://maven.minecraftforge.net' }
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'maven'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 repositories {
-    mavenCentral()
     mavenLocal()
     maven { // Vanilla
         name 'Vanilla'
         url 'https://libraries.minecraft.net/'
-    }
-    maven { // Forge
-        name 'ForgeFS'
-        url 'https://maven.minecraftforge.net/'
     }
 }
 
@@ -34,11 +28,11 @@ version = "${minecraft_version}-${mod_version}${build_number}"
 group = 'uk.joshiejack.daydreamer' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'Daydreamer'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 8 to end users, so your mod should target Java 8.
+java.toolchain.languageVersion = JavaLanguageVersion.of(16)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'official', version: '1.16.5'
+    mappings channel: 'official', version: '1.17.1'
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 
     runs {
@@ -86,7 +80,7 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.1.16'
+    minecraft 'net.minecraftforge:forge:1.17.1-37.0.13'
 }
 
 jar {
